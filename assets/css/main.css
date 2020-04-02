@@ -1,0 +1,399 @@
+
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: monospace;
+   } 
+  
+  .notification_overlay {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      right: 0;
+      bottom: 0;
+  }
+  
+  .notification_overlay.alt {
+    bottom: auto;
+    top: 0;
+  }
+  
+  .notification_overlay.left {
+    right: auto;
+    left: 0;
+  }
+  
+  .notification_overlay.left.alt {
+    right: auto;
+    left: 0;
+  }
+  
+  
+  
+  .single_notification {
+    display: flex;
+    flex-direction: row;
+    width: 375px;
+    height:auto;
+    overflow: hidden;
+    border-radius: 10px;
+    align-items: stretch;
+    box-shadow: 0 3px 5px 0 gray;
+    position: relative;
+    margin: 5px;
+    transition: 0.15s ease-in-out all;
+   } 
+  .default{
+    background: #e9ebec;
+  }
+  .default:hover{
+      z-index: 10;
+      box-shadow: 0 6px 8px 0 gray;
+  }
+  
+  
+  .notif_media {
+      min-width: 50px;
+      position: relative;
+      display: flex;
+      align-items: center;
+   } 
+  
+  .default .notif_media *{
+    max-width: 40px;
+    padding: 5px;
+  }
+  
+  .close_notif, .snooze_notif {
+      background: transparent;
+      min-width: 12px;
+      min-height: 50%;
+      font-size: 20px;
+      font-weight: bold;
+      color: lightgray;
+      border-left: 1px solid lightgray;
+      padding: 0 9px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+  } 
+  
+  .close_notif:hover,  .snooze_notif:hover {
+      color: white;
+      background: rgba(0,0,0,0.25);
+    
+  }
+  
+  .notif_content {
+    padding: 7.5px 10px;
+    width: 100%;
+  } 
+  
+  .notif_title {
+    font-size:15px;
+  } 
+  
+  .notif_message {
+    font-size:10px;
+    margin-top: 2.5px;
+  } 
+  
+  
+  .notif_options {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  .button_option {
+    border-radius: 5px;
+    cursor: pointer;
+    color: #FAFAFA;
+  }
+  .button_option:hover {
+    color: white;
+  }
+  .accept_button {
+    background: #1f94f1;
+    padding: 5px 10px;
+    margin: 0 5px 0 0;
+  }
+  .accept_button:hover {
+    background: #1d70b3;
+  }
+  .reject_button {
+    background: darkred;
+    padding: 5px 10px;
+    margin: 0 0 0 5px;
+  }
+  .reject_button:hover {
+    background: red;
+  }
+  
+  .pulseAnimation {
+    
+      animation: pulse 2s infinite;
+  }
+  
+  
+  .username_message {
+    font-weight: bold;
+    color: #448ea7;
+  }
+  
+  .quik_response_form {
+      width: 100%;
+  }
+  
+  
+  .default .textarea {
+    color: #333;
+    border: none;
+    border-bottom: 2px solid #666;
+    background: #F9F9F9;
+    width: 100%;
+    resize: vertical;
+    padding: 5px;
+  }
+  
+  .default .quick_response_send {
+    padding: 5px 10px;
+    color: white;
+    background: #1f94f1;
+    border:none;
+    border-radius: 5px;
+  }
+  
+  .default .textarea:hover, .default .textarea:focus{
+    background: #FFF;
+    border-bottom: 2px solid lightgray;
+    outline: none;
+  }
+  /**********FOR REMOVAL******/
+  
+  body > div:nth-child(2) {
+      background: #448ea7;
+      border-bottom: 2px solid #1e5061;
+  }
+  
+  body > div:nth-child(2) * {
+      color: whitesmoke;
+  }
+  
+  /***************************/
+  
+  
+  
+  @keyframes pulse {
+      0% {
+          transform: scale(.975);
+      }
+  
+      70% {
+          transform: scale(1);
+          
+      }
+  
+      100% {
+          transform: scale(.975);
+      }
+  }
+  
+  
+  /***************************/
+  
+  
+  
+  
+  /*************dark default*******/
+  .default_dark{
+    background: #444;
+    color: #FAFAFA;
+  }
+  
+  .default_dark:hover{
+      z-index: 10;
+      box-shadow: 0 6px 8px 0 black;
+  }
+  
+  
+  .default_dark .notif_media {
+      min-width: 50px;
+      position: relative;
+      display: flex;
+      align-items: center;
+   } 
+  
+  .default_dark .notif_media *{
+    max-width: 40px;
+    padding: 5px;
+  }
+  
+  .default_dark .close_notif, .default_dark .snooze_notif {
+      background: transparent;
+      min-width: 12px;
+      min-height: 50%;
+      font-size: 20px;
+      font-weight: bold;
+      color: lightgray;
+      border-left: 1px solid #555;
+      padding: 0 9px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+  } 
+  
+  .default_dark .close_notif:hover,  .default_dark .snooze_notif:hover {
+      color: white;
+      background: rgba(0,0,0,0.25);
+    
+  }
+  
+  .default_dark .notif_content {
+    padding: 7.5px 10px;
+    width: 100%;
+  } 
+  
+  .default_dark .notif_title {
+    font-size:15px;
+  } 
+  
+  .default_dark .notif_message {
+    font-size:10px;
+    margin-top: 2.5px;
+  } 
+  
+  
+  .default_dark .notif_options {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  .default_dark .button_option {
+    border-radius: 5px;
+    cursor: pointer;
+    color: #FAFAFA;
+  }
+  .default_dark .button_option:hover {
+    color: white;
+  }
+  .default_dark .accept_button {
+    background: #ff297e;
+    padding: 5px 10px;
+    margin: 0 5px 0 0;
+  }
+  .default_dark .accept_button:hover {
+    background: #d6226a;
+  }
+  .default_dark .reject_button {
+    background: #ff2929;
+    padding: 5px 10px;
+    margin: 0 0 0 5px;
+  }
+  .default_dark .reject_button:hover {
+    background: #da2929;
+  }
+  
+  .default_dark .textarea {
+    color: white;
+    border: none;
+    border-bottom: 2px solid #666;
+    background: #555;
+    width: 100%;
+    resize: vertical;
+    padding: 5px;
+  }
+  
+  .default_dark .quick_response_send {
+    padding: 5px 10px;
+    color: white;
+    background: #1f94f1;
+    border:none;
+    border-radius: 5px;
+  }
+  
+  .default_dark .textarea:hover, .default_dark .textarea:focus{
+    background: #666;
+    border-bottom: 2px solid gray;
+    outline: none;
+  }
+  
+  
+  
+  /*************ANIMATIONS*********/
+  
+  
+  .fadeOut {
+    -webkit-animation: fadeOut 1.5s;
+      animation: fadeOut 1.5s;
+      animation-fill-mode: forwards;
+  }
+  
+  
+  @-webkit-keyframes fadeOut {
+      0% { opacity: 1;}
+      99% { opacity: 0.01; height: 0.1px;}
+      100% { opacity: 0; height: 0;}
+  }  
+  @keyframes fadeOut {
+      0% { opacity: 1;}
+      99% { opacity: 0.01; height: 0.1px;}
+      100% { opacity: 0; height: 0;}
+  }
+  
+  
+  
+  .fadeOutStretch {
+      -webkit-animation: fadeOutStretch 3s;
+      animation: fadeOutStretch 3s;
+      animation-fill-mode: forwards;
+      overflow: hidden;
+      white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
+  @-webkit-keyframes fadeOutStretch {
+      0% { opacity: 1;}
+      100% { opacity: 0; height: 0px; width: 175px; margin-left: 100px;}
+  }  
+  @keyframes fadeOutStretch {
+      0% { opacity: 1;}
+      100% { opacity: 0; height: 0px; width: 175px; margin-left: 100px;}
+  }
+  
+  
+  .fadeOutSlideLeft {
+    -webkit-animation: fadeOutSlideLeft 3s;
+      animation: fadeOutSlideLeft 3s;
+      animation-fill-mode: forwards;
+  }
+  
+  
+  @-webkit-keyframes fadeOutSlideLeft {
+      0% { opacity: 1;}
+      100% { opacity: 0; margin-left: -100%;}
+  }  
+  @keyframes fadeOutSlideLeft {
+      0% { opacity: 1;}
+      100% { opacity: 0; margin-left: -100%;}
+  }
+  
+  .fadeOutSlideRight {
+    -webkit-animation: fadeOutSlideRight 3s;
+      animation: fadeOutSlideRight 3s;
+      animation-fill-mode: forwards;
+  }
+  
+  
+  @-webkit-keyframes fadeOutSlideRight {
+      0% { opacity: 1;}
+      100% { opacity: 0; margin-left: 100%;}
+  }  
+  @keyframes fadeOutSlideRight {
+      0% { opacity: 1;}
+      100% { opacity: 0; margin-left: 100%;}
+  }
+  /*******************************/
