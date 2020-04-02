@@ -18,6 +18,7 @@
   .notification_overlay.alt {
     bottom: auto;
     top: 0;
+    flex-direction: column-reverse;
   }
   
   .notification_overlay.left {
