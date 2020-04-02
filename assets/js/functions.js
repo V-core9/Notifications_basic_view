@@ -18,6 +18,40 @@ function delSingleNotifView(notification_id){
   }
 }
 
-function trowNewNotification(notification_id, notif_theme, notif_animation){
-    
+function trowNewNotification(notification){
+  var testNotifExist = document.querySelector('#notif-'+notification.id);
+  if (testNotifExist == null){
+    switch(notification.type){
+      case "call":
+        //alert("calling");
+        createCallNotification(notification);
+        break;
+      case "information":
+        alert("information");
+        break;
+    }
+  }
+}
+
+function createCallNotification(notification){
+  var notificationString = "";
+  notificationString += "<div class='single_notification "+notification.theme+" pulseAnimation' id='notif-"+notification.id+"'>";
+  notificationString += "<div class='notif_media'><img src='"+notification.iconImg+"'></div>";
+  notificationString += "<div class='notif_content'><h3 class='notif_title'>"+notification.title+"</h3><p class='notif_message'>"+notification.message+"</p>";   
+  notificationString += "<div class='notif_options'><div class='button_option accept_button' onclick='"+notification.answerButtonFunc+"'><p>"+notification.answerButtonText+"</p></div>";   
+  notificationString += " <div class='button_option reject_button' onclick='"+notification.rejectButtonFunc+"'><p>"+notification.rejectButtonText+"</p></div></div></div>";      
+  notificationString += "<div class='notif_side_options'>";       
+  
+  if (notification.closeButton == true){
+    notificationString += "<div class='button close_notif' title='Close Notification' onclick=\"closeNotification('notif-"+notification.id+"')\">x</div>"
+  }
+
+  if (notification.snoozeButton == true){
+    notificationString += "<div class='button snooze_notif' title='Hide Notification'>></div>";
+  }
+
+  notificationString += "</div></div>";
+        
+  var helperContainer = document.querySelector('.notification_overlay');
+  helperContainer.insertAdjacentHTML  ("beforeend", notificationString);
 }
