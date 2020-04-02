@@ -35,11 +35,11 @@ function trowNewNotification(notification){
 
 function createCallNotification(notification){
   var notificationString = "";
-  notificationString += "<div class='single_notification "+notification.theme+" pulseAnimation' id='notif-"+notification.id+"'>";
+  notificationString += "<div class='single_notification "+notification.theme+" "+notification.animationIn+" pulseAnimation' id='notif-"+notification.id+"'></script>";
   notificationString += "<div class='notif_media'><img src='"+notification.iconImg+"'></div>";
   notificationString += "<div class='notif_content'><h3 class='notif_title'>"+notification.title+"</h3><p class='notif_message'>"+notification.message+"</p>";   
-  notificationString += "<div class='notif_options'><div class='button_option accept_button' onclick='"+notification.answerButtonFunc+"'><p>"+notification.answerButtonText+"</p></div>";   
-  notificationString += " <div class='button_option reject_button' onclick='"+notification.rejectButtonFunc+"'><p>"+notification.rejectButtonText+"</p></div></div></div>";      
+  notificationString += "<div class='notif_options'><div class='button_option accept_button' onclick='"+notification.answerButtonFunc+"()'><p>"+notification.answerButtonText+"</p></div>";   
+  notificationString += " <div class='button_option reject_button' onclick='"+notification.rejectButtonFunc+"()'><p>"+notification.rejectButtonText+"</p></div></div></div>";      
   notificationString += "<div class='notif_side_options'>";       
   
   if (notification.closeButton == true){
@@ -54,4 +54,12 @@ function createCallNotification(notification){
         
   var helperContainer = document.querySelector('.notification_overlay');
   helperContainer.insertAdjacentHTML  ("beforeend", notificationString);
+
+  var script = document.createElement("script");
+  script.src = notification.coresponsingJS;
+
+  document.querySelector("#notif-"+notification.id).appendChild(script);
+
+  
+  setTimeout(function(){ document.querySelector("#notif-"+notification.id).classList.remove(notification.animationIn); }, 1500);
 }

@@ -342,6 +342,22 @@
       100% { opacity: 0; height: 0;}
   }
   
+  .fadeIn {
+    -webkit-animation: fadeIn 1.5s;
+      animation: fadeIn 1.5s;
+      animation-fill-mode: forwards;
+  }
+  
+  
+  @-webkit-keyframes fadeIn {
+      0% { opacity: 0;}
+      100% { opacity: 1; height: auto;}
+  }  
+  @keyframes fadeIn {
+      0% { opacity: 0;}
+      100% { opacity: 1; height: auto;}
+  }
+  
   
   
   .fadeOutStretch {

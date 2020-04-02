@@ -13,7 +13,7 @@ var notification1 = {
     answerButtonText: "Answer",
     rejectButtonFunc: "customRejectFunc",
     rejectButtonText: "Reject",
-    coresponsingJS: "assets/js/yea.js"
+    coresponsingJS: "assets/js/custom-call.testing.js"
 }
 
 function testing1(){
@@ -37,7 +37,7 @@ var notification2 = {
     answerButtonText: "Answer",
     rejectButtonFunc: "customRejectFunc",
     rejectButtonText: "Reject",
-    coresponsingJS: "assets/js/yea.js"
+    coresponsingJS: "assets/js/custom-call.testing.js"
 }
 
 function testing2(){
