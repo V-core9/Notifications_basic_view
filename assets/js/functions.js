@@ -69,3 +69,5 @@ function addCorespondingScript(scriptURL, notificationId){
 
   document.querySelector("#notif-"+notificationId).appendChild(script);
 }
+
+
