@@ -44,7 +44,7 @@ function createCallNotification(notification){
   notificationString += "<div class='notif_side_options'>";       
   
   if (notification.closeButton == true){
-    notificationString += "<div class='button close_notif' title='Close Notification' onclick=\"closeNotification('notif-"+notification.id+"')\">x</div>"
+    notificationString += "<div class='button close_notif' title='Close Notification' onclick=\"closeNotification('notif-"+notification.id+"','"+notification.animationOut+"')\">x</div>"
   };
 
   if (notification.snoozeButton == true){
