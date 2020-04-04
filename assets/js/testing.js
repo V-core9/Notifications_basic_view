@@ -4,6 +4,7 @@ var notification1 = {
     type: "call",
     animationIn: "fadeIn",
     animationOut: "fadeOutSlideRight",
+    constantAnimation: "pulseAnimation",
     iconImg: "assets/img/call-default.gif",
     closeButton: true,
     snoozeButton: true,
@@ -28,6 +29,7 @@ var notification2 = {
     type: "call",
     animationIn: "fadeIn",
     animationOut: "fadeOutSlideLeft",
+    constantAnimation: "pulseAnimation",
     iconImg: "assets/img/call-default-dark.gif",
     closeButton: true,
     snoozeButton: true,
@@ -44,8 +46,26 @@ function testing2(){
     trowNewNotification(notification2);
 }
 
-function testing3(){
 
+var notification3 = {
+    id: 3333,
+    theme: "default_dark",
+    type: "quick_message",
+    animationIn: "fadeIn",
+    animationOut: "fadeOutSlideLeft",
+    iconImg: "assets/img/call-default-dark.gif",
+    closeButton: true,
+    snoozeButton: true,
+    title: "You got new message!",
+    message: "<span class='username_message'>Jenifer:</span> Please send me more info you mother****. I can't finish this crap without it.",
+    responseTextInputClass: "inputClassNameHTML",
+    responseButtonFunc: "customQuickResponse",
+    responseButtonText: "Send",
+    coresponsingJS: "assets/js/custom-quick-response.testing.js"
+}
+
+function testing3(){
+    trowNewNotification(notification3);
 }
 
 function testing4(){
