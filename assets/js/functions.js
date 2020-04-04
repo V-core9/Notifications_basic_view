@@ -36,16 +36,19 @@ function trowNewNotification(notification){
         notificationString += createQuickMessageNotification(notification);
         break;
     }
+    notificationString += "</div></div>";
 
     //NOTIFICATION SIDE OPTIONS {CLOSE/HIDE}
-    if ((notification.closeButton == true) || (notification.snoozeButton == true)){
-      notificationString += "<div class='notif_side_options'>";       
-      if (notification.closeButton == true){
-        notificationString += "<div class='button close_notif' title='Close Notification' onclick=\"closeNotification('notif-"+notification.id+"','"+notification.animationOut+"')\">x</div>"
-      };
-      if (notification.snoozeButton == true){
-        notificationString += "<div class='button snooze_notif' title='Hide Notification'>></div>";
-      }
+    if ((notification.closeButton == true) && (notification.snoozeButton == true)){
+      notificationString += "<div class='notif_side_options'>"; 
+    }      
+    if (notification.closeButton == true){
+      notificationString += "<div class='button close_notif' title='Close Notification' onclick=\"closeNotification('notif-"+notification.id+"','"+notification.animationOut+"')\">x</div>"
+    };
+    if (notification.snoozeButton == true){
+      notificationString += "<div class='button snooze_notif' title='Hide Notification'>></div>";
+    }      
+    if ((notification.closeButton == true) && (notification.snoozeButton == true)){
       notificationString += "</div>";
     }
     //END SIDE OPTIONS
@@ -66,7 +69,7 @@ function trowNewNotification(notification){
 function createCallNotification(notification){
   var notificationString = "";
   notificationString += "<div class='button_option accept_button' onclick='"+notification.answerButtonFunc+"()'><p>"+notification.answerButtonText+"</p></div>";   
-  notificationString += "<div class='button_option reject_button' onclick='"+notification.rejectButtonFunc+"()'><p>"+notification.rejectButtonText+"</p></div></div></div>";      
+  notificationString += "<div class='button_option reject_button' onclick='"+notification.rejectButtonFunc+"()'><p>"+notification.rejectButtonText+"</p></div>";      
   return notificationString;
 }
 
@@ -75,7 +78,7 @@ function createQuickMessageNotification(notification){
   var notificationString = "";
   notificationString += "<div class='quik_response_form'>";
   notificationString += "<textarea class='textarea "+ notification.responseTextInputClass +"'></textarea>";
-  notificationString += "<button class='quick_response_send' onclick='"+notification.responseButtonFunc+"()'>"+notification.responseButtonText+"</button></div></div>";
+  notificationString += "<button class='quick_response_send' onclick='"+notification.responseButtonFunc+"()'>"+notification.responseButtonText+"</button>";
   notificationString += "</div>";
   return notificationString;
 }

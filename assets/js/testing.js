@@ -52,8 +52,8 @@ var notification3 = {
     theme: "default_dark",
     type: "quick_message",
     animationIn: "fadeIn",
-    animationOut: "fadeOutSlideLeft",
-    iconImg: "assets/img/call-default-dark.gif",
+    animationOut: "fadeOutSlideRight",
+    iconImg: "assets/img/duck.gif",
     closeButton: true,
     snoozeButton: true,
     title: "You got new message!",
@@ -68,14 +68,57 @@ function testing3(){
     trowNewNotification(notification3);
 }
 
+var notification4 = {
+    id: 4444,
+    theme: "default",
+    type: "quick_message",
+    animationIn: "fadeIn",
+    animationOut: "fadeOutSlideRight",
+    iconImg: "assets/img/duck.gif",
+    closeButton: true,
+    title: "MESSAGE IS IN THE MAIL!",
+    message: "<span class='username_message'>YEAAAuser:</span> Please send me more info you mother****. I can't finish this crap without it.",
+    responseTextInputClass: "inputClassNameHTMLC",
+    responseButtonFunc: "customQuickResponseC",
+    responseButtonText: "YEAA",
+    coresponsingJS: "assets/js/custom-quick-response.testing.js"
+}
 function testing4(){
-    
+    trowNewNotification(notification4);
+}
+
+
+
+var notification5 = {
+    id: 5555,
+    theme: "default_dark",
+    type: "information",
+    animationIn: "fadeIn",
+    animationOut: "fadeOutSlideRight",
+    iconImg: "assets/img/duck.gif",
+    closeButton: true,
+    title: "SOMETHING HAPPENED!!",
+    message: "Your computer has been hacked...Please follow the link for more information about your data. Click <a href='#'>here</a>.",
 }
 
 function testing5(){
-
+    trowNewNotification(notification5);
 }
 
+
+
+var notification6 = {
+    id: 6666,
+    theme: "default",
+    type: "information",
+    animationIn: "fadeIn",
+    animationOut: "fadeOutSlideRight",
+    constantAnimation: "pulseAnimation",
+    iconImg: "assets/img/call-default-dark.gif",
+    closeButton: true,
+    title: "SOMETHING HAPPENED!!",
+    message: "Your computer has been hacked...Please follow the link for more information about your data. Click <a href='#'>here</a>.",
+}
 function testing6(){
-    
+    trowNewNotification(notification6);
 }
