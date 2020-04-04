@@ -35,10 +35,10 @@ var notification2 = {
     snoozeButton: true,
     title: "<span class='username_message'>DemoUser</span> is calling!",
     message: "You have new incoming call!",
-    answerButtonFunc: "customAnswerFunc",
-    answerButtonText: "Answer",
-    rejectButtonFunc: "customRejectFunc",
-    rejectButtonText: "Reject",
+    answerButtonFunc: "yesGetTheCall",
+    answerButtonText: "YES BOSS",
+    rejectButtonFunc: "noooCallYou",
+    rejectButtonText: "Fuk off",
     coresponsingJS: "assets/js/custom-call.testing.js"
 }
 
