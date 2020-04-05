@@ -2,6 +2,8 @@ var scriptTesting = 'false';
 
 function closeNotification(notification_id, animationName = 'fadeOut'){
   var element = document.getElementById('notif-'+notification_id);
+  element.classList.add('closing-time');
+  element.removeEventListener("onmouseleave", mouseLeave);
   element.classList.add(animationName);
   setTimeout(function(){ delSingleNotifView(notification_id); mouseEnter(notification_id) }, 1500);
 }
@@ -21,7 +23,7 @@ function delSingleNotifView(notification_id){
 function trowNewNotification(notification){
   var testNotifExist = document.querySelector('#notif-'+notification.id);
   
-  if (testNotifExist == null){
+  if (testNotifExist === null){
     var notificationString = "";
     //notificationString += "<div class='single_notification "+notification.theme+" "+notification.animationIn+"  "+notification.constantAnimation+" ' id='notif-"+notification.id+"'>";
     notificationString += "<div class='single_notification "+notification.theme+" "+notification.animationIn+"  "+notification.constantAnimation+" ' id='notif-"+notification.id+"' onmouseenter=\"mouseEnter('"+notification.id+"')\" onmouseleave=\"mouseLeave('"+notification.id+"')\">";
@@ -82,7 +84,7 @@ function createCallNotification(notification){
 function createQuickMessageNotification(notification){
   var notificationString = "";
   notificationString += "<div class='quik_response_form'>";
-  notificationString += "<textarea class='textarea "+ notification.responseTextInputClass +"'></textarea>";
+  notificationString += "<textarea class='textarea' id='"+notification.responseTextInputId+"'></textarea>";
   notificationString += "<button class='quick_response_send' onclick='"+notification.responseButtonFunc+"()'>"+notification.responseButtonText+"</button>";
   notificationString += "</div>";
   return notificationString;
@@ -103,9 +105,6 @@ function addCorespondingScript(scriptURL, notificationId){
 
 function createProgressBarTimer(notification_id){
   eval('window.timerVariable'+notification_id+' = setInterval(function(){timerFunction("'+notification_id+'")}, 16)');
-  
-  //document.querySelector("#notif-"+notification_id).addEventListener('mouseenter', mouseEnter(notification_id));
-  //document.querySelector("#notif-"+notification_id).addEventListener("mouseleave", mouseLeave(notification_id));
 }
 
 
@@ -115,35 +114,54 @@ function mouseEnter(notification_id) {
 
 function mouseLeave(notification_id) {
   var timerNotif = document.querySelector('#notif-'+notification_id+' .inner-progress-bar');
-  //--if progress full don't start timer-- 
-  if (parseFloat(timerNotif.dataset.progress) < 100){
-    eval('window.timerVariable'+notification_id+' = setInterval(function(){timerFunction('+ notification_id+')}, 16)') ;
-  }
+  var parentDiv = document.getElementById('notif-'+notification_id);
+  var childDiv = document.activeElement;
+    if (parentDiv.contains(childDiv)) {
+      //alert("yes");
+      childDiv.addEventListener("focusout", function(){
+        //--if progress full don't start timer-- 
+        if (!(timerNotif.classList.contains('closing-time')) && (parseFloat(timerNotif.dataset.progress) < 100)){
+          eval('window.timerVariable'+notification_id+' = setInterval(function(){timerFunction('+ notification_id+')}, 16)') ;
+        }
+      });
+    }
+    else{
+      //--if progress full don't start timer-- 
+      if (parseFloat(timerNotif.dataset.progress) < 100){
+        eval('window.timerVariable'+notification_id+' = setInterval(function(){timerFunction('+ notification_id+')}, 16)') ;
+      }
+    }
+    
+  
 }
 
 function timerFunction(notification_id){
   var timerNotif = document.querySelector('#notif-'+notification_id+' .inner-progress-bar');
-  
-  //--Testing start of progress bar-- 
-  if (( scriptTesting == true) && (parseFloat(timerNotif.dataset.progress) == 0)) {
-    alert("started")
-  };
-  
-  if (parseFloat(timerNotif.dataset.progress) < 100){
-    var helper = parseFloat(timerNotif.dataset.progress);
-    timerNotif.dataset.progress = helper + 0.2;
-    timerNotif.setAttribute('data-progress', timerNotif.dataset.progress);
-    console.log(timerNotif.dataset.progress);
-    timerNotif.style.width = timerNotif.dataset.progress+"%";
-  } else {
-    //--Testing full progress bar 
-    if (( scriptTesting == true) && (parseFloat(timerNotif.dataset.progress) > 100)) {
-      alert("FULL");
-    };
-    //--Stoping timer when progress full
+  if (timerNotif === null){
     eval('clearInterval(window.timerVariable'+ notification_id+')');
-    closeNotification(notification_id);
-  };
+  } else {
+    //--Testing start of progress bar-- 
+    if (( scriptTesting == true) && (parseFloat(timerNotif.dataset.progress) == 0)) {
+      alert("started")
+    };
+
+    if (parseFloat(timerNotif.dataset.progress) < 100){
+      var helper = parseFloat(timerNotif.dataset.progress);
+      timerNotif.dataset.progress = helper + 0.2;
+      timerNotif.setAttribute('data-progress', timerNotif.dataset.progress);
+      console.log(timerNotif.dataset.progress);
+      timerNotif.style.width = timerNotif.dataset.progress+"%";
+    } else {
+      //--Testing full progress bar 
+      if (( scriptTesting == true) && (parseFloat(timerNotif.dataset.progress) > 100)) {
+        alert("FULL");
+      };
+      //--Stoping timer when progress full
+      eval('clearInterval(window.timerVariable'+ notification_id+')');
+      closeNotification(notification_id);
+    };
+  }
+  
 }
 
 /////--------------------------------------------////

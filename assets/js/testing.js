@@ -58,7 +58,7 @@ var notification3 = {
     snoozeButton: true,
     title: "You got new message!",
     message: "<span class='username_message'>Jenifer:</span> Please send me more info you mother****. I can't finish this crap without it.",
-    responseTextInputClass: "inputClassNameHTML",
+    responseTextInputId: "inputClassNameHTML",
     responseButtonFunc: "customQuickResponse",
     responseButtonText: "Send",
     coresponsingJS: "assets/js/custom-quick-response.testing.js"
@@ -78,7 +78,7 @@ var notification4 = {
     closeButton: true,
     title: "MESSAGE IS IN THE MAIL!",
     message: "<span class='username_message'>YEAAAuser:</span> Please send me more info you mother****. I can't finish this crap without it.",
-    responseTextInputClass: "inputClassNameHTMLC",
+    responseTextInputId: "inputClassNameHTMLC",
     responseButtonFunc: "customQuickResponseC",
     responseButtonText: "YEAA",
     coresponsingJS: "assets/js/custom-quick-response.testing.js"
